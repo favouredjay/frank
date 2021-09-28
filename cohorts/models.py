@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Cohort(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20, unique=True)
     description = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
 
@@ -18,7 +18,7 @@ class Native(models.Model):
     scvn = models.CharField(max_length=10)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     image = models.ImageField(upload_to="images/")
     date_created = models.DateTimeField(auto_now_add=True)
 
