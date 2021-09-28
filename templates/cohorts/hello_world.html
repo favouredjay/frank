@@ -5,6 +5,21 @@
     <title>Hello World!</title>
 </head>
 <body>
-    <h1>Hello {{ anything }}</h1>
+    <h1>COHORTS</h1>
+    <hr>
+    <a href="{% url 'create_cohort' %}">Click to create cohort</a>
+    <hr>
+
+    {% if cohorts %}
+        {% for cohort in cohorts %}
+            <h1>This is {{ cohort.name }}</h1>
+            <h2>{{ cohort.description }}</h2>
+            <p>Date created: {{ cohort.date_created }}</p>
+        {% endfor %}
+    {% else %}
+        <h2>No Cohorts found. Try Creating One</h2>
+        <a href="{% url 'create_cohort' %}">Create Cohort</a>
+    {% endif %}
+
 </body>
 </html>

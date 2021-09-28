@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hoello World!</title>
+    <title>Hello World!</title>
 </head>
 <body>
-    <h1>Hello Joy!</h1>
+    <h1>Create Cohort Here</h1>
+    <a href="{% url 'cohorts' %}">All Cohorts</a>
+    <hr>
+    <form action="" method="post">
+        {% csrf_token %}
+         {{ form.as_p }}
+        <button type="sumbit">Create</button>
+    </form>
 </body>
 </html>
